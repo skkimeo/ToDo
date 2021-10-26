@@ -18,7 +18,7 @@ struct MyToDoListView: View {
                 addButton
                 toDoListBody
             }
-            .navigationTitle("My To Do List")
+            .navigationBarTitle("My To Do List")
         }
     }
     
@@ -28,6 +28,7 @@ struct MyToDoListView: View {
         } label: {
             Image(systemName: "plus")
         }
+        .padding()
         .sheet(isPresented: $showingAddTaskSheet) {
             if #available(iOS 15.0, *) {
                 AddTaskViewiOS15(todo: todo)

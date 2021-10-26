@@ -9,15 +9,26 @@ import SwiftUI
 
 struct TaskRowView: View {
     var task: Task
+    @State private var isComplete = false
     
     var body: some View {
-        HStack {
-            // try to add a check box later
-            Text(task.date, style: .date)
-            Text(task.name.uppercased()).bold()
+        Toggle(isOn: $isComplete) {
+            HStack {
+                Text(task.date, style: .date)
+                Text(task.name.uppercased()).bold()
+            }
         }
+        .toggleStyle(CheckboxToggleStyle())
     }
 }
+
+
+
+
+
+
+
+
 
 //struct TaskRowView_Previews: PreviewProvider {
 //    static var previews: some View {

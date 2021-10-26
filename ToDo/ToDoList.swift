@@ -22,6 +22,12 @@ struct ToDoList {
     mutating func deleteTask(at index: IndexSet) {
         tasks.remove(atOffsets: index)
     }
+    
+//    mutating func complete(_ task: Task) {
+//        if let index = tasks.firstIndex(of: task) {
+//            tasks[index].isComplete = true
+//        }
+//    }
 }
 
 struct Task: Identifiable, Equatable {
@@ -32,5 +38,5 @@ struct Task: Identifiable, Equatable {
     var description: String
     var date: Date
     // toggle this for checkbox...
-    var isDone = false
+//    var isComplete = false
 }

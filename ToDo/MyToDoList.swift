@@ -38,4 +38,8 @@ class MyToDoList: ObservableObject {
     func deleteTask(at index: IndexSet) {
         toDoList.deleteTask(at: index)
     }
+    
+//    func complete(_ task: Task) {
+//        toDoList.complete(task)
+//    }
 }
