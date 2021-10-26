@@ -12,8 +12,10 @@ class MyToDoList: ObservableObject {
     // fill this manually?
     static var myTasks: [Task] {
         var tasks = [Task]()
-        let makeToDoApp = Task(name: "make todo app", description: "for piscine...", date: Date())
-        tasks.append(makeToDoApp)
+        for index in 1...5 {
+            let makeToDoApp = Task(name: "task \(index)", description: "for piscine...", date: Date())
+            tasks.append(makeToDoApp)
+        }
         return tasks
     }
     
@@ -33,7 +35,7 @@ class MyToDoList: ObservableObject {
         toDoList.add(task)
     }
     
-    func delete(_ task: Task) {
-        toDoList.delete(task)
+    func deleteTask(at index: IndexSet) {
+        toDoList.deleteTask(at: index)
     }
 }

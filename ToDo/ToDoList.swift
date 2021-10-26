@@ -18,10 +18,8 @@ struct ToDoList {
         tasks.append(task)
     }
     
-    mutating func delete(_ task: Task) {
-        if let index = tasks.firstIndex(of: task) {
-            tasks.remove(at: index)
-        }
+    mutating func deleteTask(at index: IndexSet) {
+        tasks.remove(atOffsets: index)
     }
 }
 

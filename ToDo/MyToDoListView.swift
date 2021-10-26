@@ -15,7 +15,6 @@ struct MyToDoListView: View {
         NavigationView {
             VStack {
                 //                addButton
-                //use Navigation link to link to detail view
                 toDoListBody
             }
             .navigationTitle("My To Do List")
@@ -27,8 +26,10 @@ struct MyToDoListView: View {
             ForEach(todo.tasks) { task in
                 NavigationLink(destination: TaskDetailView(task: task)) {
                     TaskRowView(task: task)
+                        .padding(.vertical)
                 }
             }
+            .onDelete(perform: todo.deleteTask)
         }
     }
 }
