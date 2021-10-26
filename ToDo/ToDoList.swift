@@ -12,9 +12,6 @@ struct ToDoList {
     var tasks = [Task]()
   
     init() {}
-//    init(tasks: [Task]) {
-//        self.tasks = tasks
-//    }
     
     mutating func addTask(name: String, description: String, date: Date, isComplete: Bool) {
         tasks.append(Task(name: name, description: description, date: date, isComplete: isComplete))
@@ -24,11 +21,12 @@ struct ToDoList {
         tasks.remove(atOffsets: index)
     }
     
-//    mutating func complete(_ task: Task) {
-//        if let index = tasks.firstIndex(of: task) {
-//            tasks[index].isComplete = true
-//        }
-//    }
+    mutating func complete(_ task: Task) {
+        if let index = tasks.firstIndex(of: task) {
+            tasks[index].isComplete.toggle()
+        }
+    }
+    
     struct Task: Identifiable, Codable, Equatable {
         var id = UUID()
         var name: String
@@ -36,9 +34,9 @@ struct ToDoList {
         // so that I can display them in list?
         var description: String
         var date: Date
-        // toggle this for checkbox...
         var isComplete = false
         
+        // so that other's can't add a new task from outside the Model
         fileprivate init(name: String, description: String, date: Date, isComplete: Bool) {
             self.name = name
             self.description = description

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddTaskViewiOS14AndUnder: View {
     @ObservedObject var todo: MyToDoList
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) private var presentationMode
     
     @State private var name: String = ""
     @State private var date = Date()
@@ -40,7 +40,7 @@ struct AddTaskViewiOS14AndUnder: View {
     
     var addButton: some View {
         Button("Add") {
-            todo.addTask(name: name, description: description, date: date)
+            todo.addTask(name: name, description: description, date: date, isCompltete: false)
             presentationMode.wrappedValue.dismiss()
         }
     }

@@ -9,14 +9,8 @@ import SwiftUI
 
 class MyToDoList: ObservableObject {
     typealias Task = ToDoList.Task
-    // fill this manually?
-//    static var myTasks = [Task]()
     private let myKey = "myKey"
-    
-//    static private func createToDoList() -> ToDoList {
-//        ToDoList(tasks: myTasks)
-//    }
-    
+
     init() {
         toDoList = ToDoList()
         fetchTasks()
@@ -30,39 +24,40 @@ class MyToDoList: ObservableObject {
         }
     }
     
+    var tasks: [Task] {
+        toDoList.tasks
+    }
+    
+    // MARK: - Saving and Fetching Data
+    
+    private func saveTasks() {
+        if let encodedData = try? JSONEncoder().encode(tasks) {
+            UserDefaults.standard.set(encodedData, forKey: myKey)
+        }
+    }
+    
     private func fetchTasks() {
         guard
             let data = UserDefaults.standard.data(forKey: myKey),
             let savedTasks = try? JSONDecoder().decode([Task].self, from: data)
         else { return }
         for task in savedTasks {
-            addTask(name: task.name, description: task.description, date: task.date)
+            addTask(name: task.name, description: task.description, date: task.date, isCompltete: task.isComplete)
         }
         
     }
     
-    
-    var tasks: [Task] {
-        toDoList.tasks
-    }
-    
     // MARK: - Intent(s)
     
-    func addTask(name: String, description: String, date: Date) {
-        toDoList.addTask(name: name, description: description, date: date)
+    func addTask(name: String, description: String, date: Date, isCompltete: Bool) {
+        toDoList.addTask(name: name, description: description, date: date, isComplete: isCompltete)
     }
     
     func deleteTask(at index: IndexSet) {
         toDoList.deleteTask(at: index)
     }
     
-    func saveTasks() {
-        if let encodedData = try? JSONEncoder().encode(tasks) {
-            UserDefaults.standard.set(encodedData, forKey: myKey)
-        }
+    func complete(_ task: Task) {
+        toDoList.complete(task)
     }
-    
-//    func complete(_ task: Task) {
-//        toDoList.complete(task)
-//    }
 }

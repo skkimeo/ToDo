@@ -46,7 +46,7 @@ struct MyToDoListView: View {
         List {
             ForEach(todo.tasks) { task in
                 NavigationLink(destination: TaskDetailView(task: task)) {
-                    TaskRowView(task: task)
+                    TaskRowView(todo: todo, task: task)
                         .padding(.vertical)
                 }
             }

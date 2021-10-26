@@ -14,12 +14,11 @@ struct TaskDetailView: View {
         VStack {
             Text("Task: \(task.name)").font(.largeTitle)
             if #available(iOS 15.0, *) {
-                Text("Due: \(task.date.formatted(date: .abbreviated, time: .omitted))")
+                Text("Due: \(task.date.formatted(.dateTime))")
             } else {
-                // Fallback on earlier versions
+                Text("Due: \(task.date.description)")
             }
             Spacer()
-            // some kind of spacer?
             Text(task.description).font(Font.system(size: 25))
             Spacer()
         }

@@ -10,11 +10,7 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct AddTaskViewiOS15: View {
     @ObservedObject var todo: MyToDoList
-    
-    // If you’re targeting iOS 14 or below,
-    // you should use @Environment(\.presentationMode) var presentationMode
-    // and presentationMode.wrappedValue.dismiss() instead.
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     @State private var name: String = ""
     @State private var date = Date()
@@ -44,7 +40,7 @@ struct AddTaskViewiOS15: View {
     
     var addButton: some View {
         Button("Add") {
-            todo.addTask(name: name, description: description, date: date)
+            todo.addTask(name: name, description: description, date: date, isCompltete: false)
             dismiss()
         }
     }
