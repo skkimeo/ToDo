@@ -9,15 +9,26 @@ import SwiftUI
 
 struct MyToDoListView: View {
     
-    @ObservedObject var Todo: MyToDoList
+    @StateObject var todo: MyToDoList
     
     var body: some View {
         NavigationView {
             VStack {
-//                addButton
-//                toDoListBody -> use Navigation link to link to detail view
+                //                addButton
+                //use Navigation link to link to detail view
+                toDoListBody
             }
             .navigationTitle("My To Do List")
+        }
+    }
+    
+    @ViewBuilder var toDoListBody: some View {
+        List {
+            ForEach(todo.tasks) { task in
+                //            NavigationLink() {
+                TaskRowView(task: task)
+                //        }
+            }
         }
     }
 }
@@ -41,6 +52,6 @@ struct MyToDoListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let todo = MyToDoList()
-        MyToDoListView(Todo: todo)
+        MyToDoListView(todo: todo)
     }
 }

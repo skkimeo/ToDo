@@ -12,7 +12,7 @@ struct ToDoApp: App {
     let todo = MyToDoList()
     var body: some Scene {
         WindowGroup {
-            MyToDoListView(Todo: todo)
+            MyToDoListView(todo: todo)
         }
     }
 }
