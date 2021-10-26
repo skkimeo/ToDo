@@ -1,5 +1,5 @@
 //
-//  AddTaskView.swift
+//  AddTaskViewiOS15.swift
 //  ToDo
 //
 //  Created by sun on 2021/10/26.
@@ -7,8 +7,14 @@
 
 import SwiftUI
 
-struct AddTaskView: View {
+@available(iOS 15.0, *)
+struct AddTaskViewiOS15: View {
     @ObservedObject var todo: MyToDoList
+    
+    // If you’re targeting iOS 14 or below,
+    // you should use @Environment(\.presentationMode) var presentationMode
+    // and presentationMode.wrappedValue.dismiss() instead.
+    @Environment(\.dismiss) var dismiss
     
     @State private var name: String = ""
     @State private var date = Date()
@@ -27,8 +33,11 @@ struct AddTaskView: View {
                 }
             }
             HStack {
+                Spacer()
+                cancelButton
+                Spacer()
                 addButton
-//                cancelButton
+                Spacer()
             }
         }
     }
@@ -36,21 +45,33 @@ struct AddTaskView: View {
     var addButton: some View {
         Button("Add") {
             todo.addTask(name: name, description: description, date: date)
-        }
-        .onTapGesture {
-            
+            dismiss()
         }
     }
     
-//    var cancelButton: some View {
-//        Button("Cancel") {
-//
-//        }
-//    }
+    var cancelButton: some View {
+        Button("Cancel") {
+            dismiss()
+        }
+    }
 }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 //struct addNewTaskView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddTaskView()
+//        AddTaskViewiOS15()
 //    }
 //}

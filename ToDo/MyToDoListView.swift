@@ -10,6 +10,7 @@ import SwiftUI
 struct MyToDoListView: View {
     
     @StateObject var todo: MyToDoList
+    @State private var showingAddTaskSheet = false
     
     var body: some View {
         NavigationView {
@@ -22,9 +23,19 @@ struct MyToDoListView: View {
     }
     
     var addButton: some View {
-        NavigationLink(destination: AddTaskView(todo: todo)) {
+        Button {
+            showingAddTaskSheet.toggle()
+        } label: {
             Image(systemName: "plus")
         }
+        .sheet(isPresented: $showingAddTaskSheet) {
+            if #available(iOS 15.0, *) {
+                AddTaskViewiOS15(todo: todo)
+            } else {
+                AddTaskViewiOS14AndUnder(todo: todo)
+            }
+        }
+        
     }
     
     @ViewBuilder var toDoListBody: some View {
