@@ -25,9 +25,9 @@ struct MyToDoListView: View {
     @ViewBuilder var toDoListBody: some View {
         List {
             ForEach(todo.tasks) { task in
-                //            NavigationLink() {
-                TaskRowView(task: task)
-                //        }
+                NavigationLink(destination: TaskDetailView(task: task)) {
+                    TaskRowView(task: task)
+                }
             }
         }
     }
