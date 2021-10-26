@@ -9,14 +9,15 @@ import Foundation
 //import UIKit
 
 struct ToDoList {
-    var tasks: [Task]
+    var tasks = [Task]()
+  
+    init() {}
+//    init(tasks: [Task]) {
+//        self.tasks = tasks
+//    }
     
-    init(tasks: [Task]) {
-        self.tasks = tasks
-    }
-    
-    mutating func addTask(name: String, description: String, date: Date) {
-        tasks.append(Task(name: name, description: description, date: date))
+    mutating func addTask(name: String, description: String, date: Date, isComplete: Bool) {
+        tasks.append(Task(name: name, description: description, date: date, isComplete: isComplete))
     }
     
     mutating func deleteTask(at index: IndexSet) {
@@ -28,7 +29,7 @@ struct ToDoList {
 //            tasks[index].isComplete = true
 //        }
 //    }
-    struct Task: Identifiable, Equatable {
+    struct Task: Identifiable, Codable, Equatable {
         var id = UUID()
         var name: String
         // or maybe the description could be some type of array?
@@ -36,12 +37,13 @@ struct ToDoList {
         var description: String
         var date: Date
         // toggle this for checkbox...
-        //    var isComplete = false
+        var isComplete = false
         
-        fileprivate init(name: String, description: String, date: Date) {
+        fileprivate init(name: String, description: String, date: Date, isComplete: Bool) {
             self.name = name
             self.description = description
             self.date = date
+            self.isComplete = isComplete
         }
     }
 }

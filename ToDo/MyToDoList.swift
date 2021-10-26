@@ -9,15 +9,38 @@ import SwiftUI
 
 class MyToDoList: ObservableObject {
     typealias Task = ToDoList.Task
-    
     // fill this manually?
-    static var myTasks = [Task]()
+//    static var myTasks = [Task]()
+    private let myKey = "myKey"
     
-    static private func createToDoList() -> ToDoList {
-        ToDoList(tasks: myTasks)
+//    static private func createToDoList() -> ToDoList {
+//        ToDoList(tasks: myTasks)
+//    }
+    
+    init() {
+        toDoList = ToDoList()
+        fetchTasks()
     }
     
-    @Published private var toDoList = createToDoList()
+    @Published private var toDoList: ToDoList {
+        didSet {
+            if toDoList.tasks != oldValue.tasks {
+                saveTasks()
+            }
+        }
+    }
+    
+    private func fetchTasks() {
+        guard
+            let data = UserDefaults.standard.data(forKey: myKey),
+            let savedTasks = try? JSONDecoder().decode([Task].self, from: data)
+        else { return }
+        for task in savedTasks {
+            addTask(name: task.name, description: task.description, date: task.date)
+        }
+        
+    }
+    
     
     var tasks: [Task] {
         toDoList.tasks
@@ -33,6 +56,11 @@ class MyToDoList: ObservableObject {
         toDoList.deleteTask(at: index)
     }
     
+    func saveTasks() {
+        if let encodedData = try? JSONEncoder().encode(tasks) {
+            UserDefaults.standard.set(encodedData, forKey: myKey)
+        }
+    }
     
 //    func complete(_ task: Task) {
 //        toDoList.complete(task)
