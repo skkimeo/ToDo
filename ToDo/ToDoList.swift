@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ToDoList {
     var tasks: [Task]
@@ -14,8 +15,8 @@ struct ToDoList {
         self.tasks = tasks
     }
     
-    mutating func add(_ task: Task) {
-        tasks.append(task)
+    mutating func addTask(name: String, description: String, date: Date) {
+        tasks.append(Task(name: name, description: description, date: date))
     }
     
     mutating func deleteTask(at index: IndexSet) {
@@ -30,4 +31,6 @@ struct Task: Identifiable, Equatable {
     // so that I can display them in list?
     var description: String
     var date: Date
+    // toggle this for checkbox...
+    var isDone = false
 }

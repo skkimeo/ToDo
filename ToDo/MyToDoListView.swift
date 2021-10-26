@@ -14,10 +14,16 @@ struct MyToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                //                addButton
+                addButton
                 toDoListBody
             }
             .navigationTitle("My To Do List")
+        }
+    }
+    
+    var addButton: some View {
+        NavigationLink(destination: AddTaskView(todo: todo)) {
+            Image(systemName: "plus")
         }
     }
     

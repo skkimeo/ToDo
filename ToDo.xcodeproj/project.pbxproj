@@ -15,6 +15,7 @@
 		A47BE8FA2727E4D7007B1846 /* MyToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8F92727E4D7007B1846 /* MyToDoList.swift */; };
 		A47BE8FC2727EFB2007B1846 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8FB2727EFB2007B1846 /* TaskRowView.swift */; };
 		A47BE8FE2727F4D6007B1846 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8FD2727F4D6007B1846 /* TaskDetailView.swift */; };
+		A47BE90027280158007B1846 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8FF27280158007B1846 /* AddTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A47BE8F92727E4D7007B1846 /* MyToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoList.swift; sourceTree = "<group>"; };
 		A47BE8FB2727EFB2007B1846 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
 		A47BE8FD2727F4D6007B1846 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		A47BE8FF27280158007B1846 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		A47BE8E82727DFBB007B1846 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				A47BE8FF27280158007B1846 /* AddTaskView.swift */,
 				A47BE8FD2727F4D6007B1846 /* TaskDetailView.swift */,
 				A47BE8E92727DFBB007B1846 /* ToDoApp.swift */,
 				A47BE8F72727E1ED007B1846 /* ToDoList.swift */,
@@ -151,6 +154,7 @@
 			files = (
 				A47BE8FC2727EFB2007B1846 /* TaskRowView.swift in Sources */,
 				A47BE8EC2727DFBB007B1846 /* MyToDoListView.swift in Sources */,
+				A47BE90027280158007B1846 /* AddTaskView.swift in Sources */,
 				A47BE8FE2727F4D6007B1846 /* TaskDetailView.swift in Sources */,
 				A47BE8F82727E1ED007B1846 /* ToDoList.swift in Sources */,
 				A47BE8EA2727DFBB007B1846 /* ToDoApp.swift in Sources */,

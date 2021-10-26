@@ -31,8 +31,8 @@ class MyToDoList: ObservableObject {
     
     // MARK: - Intent(s)
     
-    func add(_ task: Task) {
-        toDoList.add(task)
+    func addTask(name: String, description: String, date: Date) {
+        toDoList.addTask(name: name, description: description, date: date)
     }
     
     func deleteTask(at index: IndexSet) {
