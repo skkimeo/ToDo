@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+//import UIKit
 
 struct ToDoList {
     var tasks: [Task]
@@ -28,15 +28,21 @@ struct ToDoList {
 //            tasks[index].isComplete = true
 //        }
 //    }
+    struct Task: Identifiable, Equatable {
+        var id = UUID()
+        var name: String
+        // or maybe the description could be some type of array?
+        // so that I can display them in list?
+        var description: String
+        var date: Date
+        // toggle this for checkbox...
+        //    var isComplete = false
+        
+        fileprivate init(name: String, description: String, date: Date) {
+            self.name = name
+            self.description = description
+            self.date = date
+        }
+    }
 }
 
-struct Task: Identifiable, Equatable {
-    var id = UUID()
-    var name: String
-    // or maybe the description could be some type of array?
-    // so that I can display them in list?
-    var description: String
-    var date: Date
-    // toggle this for checkbox...
-//    var isComplete = false
-}

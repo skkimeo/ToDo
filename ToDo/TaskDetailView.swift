@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskDetailView: View {
-    var task: Task
+    var task: MyToDoList.Task
 
     var body: some View {
         VStack {

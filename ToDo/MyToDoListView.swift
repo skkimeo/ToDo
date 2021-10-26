@@ -15,7 +15,10 @@ struct MyToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                addButton
+                HStack {
+//                    EditButton()
+                    addButton
+                }
                 toDoListBody
             }
             .navigationBarTitle("My To Do List")

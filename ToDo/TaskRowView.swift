@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskRowView: View {
-    var task: Task
+    var task: MyToDoList.Task
     @State private var isComplete = false
     
     var body: some View {

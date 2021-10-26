@@ -8,16 +8,10 @@
 import SwiftUI
 
 class MyToDoList: ObservableObject {
+    typealias Task = ToDoList.Task
     
     // fill this manually?
-    static var myTasks: [Task] {
-        var tasks = [Task]()
-        for index in 1...5 {
-            let makeToDoApp = Task(name: "task \(index)", description: "for piscine...", date: Date())
-            tasks.append(makeToDoApp)
-        }
-        return tasks
-    }
+    static var myTasks = [Task]()
     
     static private func createToDoList() -> ToDoList {
         ToDoList(tasks: myTasks)
@@ -38,6 +32,7 @@ class MyToDoList: ObservableObject {
     func deleteTask(at index: IndexSet) {
         toDoList.deleteTask(at: index)
     }
+    
     
 //    func complete(_ task: Task) {
 //        toDoList.complete(task)
