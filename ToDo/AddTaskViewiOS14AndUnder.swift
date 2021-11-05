@@ -15,6 +15,7 @@ struct AddTaskViewiOS14AndUnder: View {
     @State private var name: String = ""
     @State private var date = Date()
     @State private var description: String = ""
+    @State private var priority: String = ""
     
     var body: some View {
         VStack {
@@ -40,7 +41,7 @@ struct AddTaskViewiOS14AndUnder: View {
     
     var addButton: some View {
         Button("Add") {
-            todo.addTask(name: name, description: description, date: date, isCompltete: false)
+            todo.addTask(name: name, description: description, date: date, isCompltete: false, priority: priority)
             presentationMode.wrappedValue.dismiss()
         }
     }

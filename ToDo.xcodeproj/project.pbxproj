@@ -17,6 +17,7 @@
 		A47BE8FE2727F4D6007B1846 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8FD2727F4D6007B1846 /* TaskDetailView.swift */; };
 		A47BE90027280158007B1846 /* AddTaskViewiOS15.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE8FF27280158007B1846 /* AddTaskViewiOS15.swift */; };
 		A47BE90227281CD5007B1846 /* AddTaskViewiOS14AndUnder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BE90127281CD5007B1846 /* AddTaskViewiOS14AndUnder.swift */; };
+		A4B965A427336C2300EE4555 /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B965A327336C2300EE4555 /* Priority.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A47BE8FD2727F4D6007B1846 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		A47BE8FF27280158007B1846 /* AddTaskViewiOS15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewiOS15.swift; sourceTree = "<group>"; };
 		A47BE90127281CD5007B1846 /* AddTaskViewiOS14AndUnder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewiOS14AndUnder.swift; sourceTree = "<group>"; };
+		A4B965A327336C2300EE4555 /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				A47BE8FB2727EFB2007B1846 /* TaskRowView.swift */,
 				A47BE8ED2727DFBD007B1846 /* Assets.xcassets */,
 				A47BE8EF2727DFBD007B1846 /* Preview Content */,
+				A4B965A327336C2300EE4555 /* Priority.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				A47BE8F82727E1ED007B1846 /* ToDoList.swift in Sources */,
 				A47BE8EA2727DFBB007B1846 /* ToDoApp.swift in Sources */,
 				A47BE8FA2727E4D7007B1846 /* MyToDoList.swift in Sources */,
+				A4B965A427336C2300EE4555 /* Priority.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

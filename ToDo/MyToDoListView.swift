@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct MyToDoListView: View {
     
     @StateObject var todo: MyToDoList
@@ -45,7 +46,7 @@ struct MyToDoListView: View {
     @ViewBuilder var toDoListBody: some View {
         List {
             ForEach(todo.tasks) { task in
-                NavigationLink(destination: TaskDetailView(task: task)) {
+                NavigationLink(destination: TaskDetailView(todo: todo, task: task)) {
                     TaskRowView(todo: todo, task: task)
                         .padding(.vertical)
                 }
@@ -74,6 +75,10 @@ struct MyToDoListView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let todo = MyToDoList()
-        MyToDoListView(todo: todo)
+        if #available(iOS 15.0, *) {
+            MyToDoListView(todo: todo)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

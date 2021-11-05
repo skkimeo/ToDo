@@ -12,7 +12,11 @@ struct ToDoApp: App {
     let todo = MyToDoList()
     var body: some Scene {
         WindowGroup {
-            MyToDoListView(todo: todo)
+            if #available(iOS 15.0, *) {
+                MyToDoListView(todo: todo)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

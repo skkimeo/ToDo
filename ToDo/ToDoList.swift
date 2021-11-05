@@ -13,8 +13,8 @@ struct ToDoList {
   
     init() {}
     
-    mutating func addTask(name: String, description: String, date: Date, isComplete: Bool) {
-        tasks.append(Task(name: name, description: description, date: date, isComplete: isComplete))
+    mutating func addTask(name: String, description: String, date: Date, isComplete: Bool, priority: String) {
+        tasks.append(Task(name: name, description: description, date: date, isComplete: isComplete, priority: priority))
     }
     
     mutating func deleteTask(at index: IndexSet) {
@@ -35,13 +35,15 @@ struct ToDoList {
         var description: String
         var date: Date
         var isComplete = false
+        var priority: String
         
         // so that other's can't add a new task from outside the Model
-        fileprivate init(name: String, description: String, date: Date, isComplete: Bool) {
+        fileprivate init(name: String, description: String, date: Date, isComplete: Bool, priority: String) {
             self.name = name
             self.description = description
             self.date = date
             self.isComplete = isComplete
+            self.priority = priority
         }
     }
 }

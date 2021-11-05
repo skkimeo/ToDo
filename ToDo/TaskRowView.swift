@@ -10,10 +10,25 @@ import SwiftUI
 struct TaskRowView: View {
     @ObservedObject var todo: MyToDoList
     var task: MyToDoList.Task
+    var priorityColor: Color
+    
+    init(todo: MyToDoList, task: MyToDoList.Task) {
+        self.todo = todo
+        self.task = task
+        switch task.priority {
+        case "high":
+            priorityColor = .red
+        case "medium":
+            priorityColor = .orange
+        default:
+            priorityColor = .black
+        }
+    }
     
     var body: some View {
         HStack {
             checkboxButton
+                .foregroundColor(task.isComplete ? .gray : .black)
             VStack(alignment: .leading) {
                 if #available(iOS 15.0, *) {
                     Text(task.date.formatted(.dateTime))
@@ -23,8 +38,8 @@ struct TaskRowView: View {
                 Spacer()
                 Text(task.name.uppercased()).bold()
             }
+            .foregroundColor(task.isComplete ? .gray : priorityColor)
         }
-        .foregroundColor(task.isComplete ? .gray : .black)
     }
     var checkboxButton: some View {
         Button {

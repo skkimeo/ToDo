@@ -15,6 +15,7 @@ struct AddTaskViewiOS15: View {
     @State private var name: String = ""
     @State private var date = Date()
     @State private var description: String = ""
+    @State private var priority: String = ""
     
     var body: some View {
         VStack {
@@ -24,8 +25,18 @@ struct AddTaskViewiOS15: View {
                     TextField("Description", text: $description)
                 }
                 
-                Section {
-                    DatePicker("Due", selection: $date)
+                Section(header: Text("priority").foregroundColor(.black)) {
+                    Picker("Priority", selection: $priority) {
+                        Text("high").tag("high")
+                        Text("medium").tag("medium")
+                        Text("low").tag("low")
+                    }
+                    .pickerStyle(.segmented)
+                }
+                
+                Section(header: Text("due").foregroundColor(.black)) {
+                    DatePicker("", selection: $date)
+                        .datePickerStyle(.graphical)
                 }
             }
             HStack {
@@ -40,7 +51,7 @@ struct AddTaskViewiOS15: View {
     
     var addButton: some View {
         Button("Add") {
-            todo.addTask(name: name, description: description, date: date, isCompltete: false)
+            todo.addTask(name: name, description: description, date: date, isCompltete: false, priority: priority)
             dismiss()
         }
     }

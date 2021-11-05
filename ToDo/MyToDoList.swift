@@ -42,15 +42,15 @@ class MyToDoList: ObservableObject {
             let savedTasks = try? JSONDecoder().decode([Task].self, from: data)
         else { return }
         for task in savedTasks {
-            addTask(name: task.name, description: task.description, date: task.date, isCompltete: task.isComplete)
+            addTask(name: task.name, description: task.description, date: task.date, isCompltete: task.isComplete, priority: task.priority)
         }
         
     }
     
     // MARK: - Intent(s)
     
-    func addTask(name: String, description: String, date: Date, isCompltete: Bool) {
-        toDoList.addTask(name: name, description: description, date: date, isComplete: isCompltete)
+    func addTask(name: String, description: String, date: Date, isCompltete: Bool, priority: String) {
+        toDoList.addTask(name: name, description: description, date: date, isComplete: isCompltete, priority: priority)
     }
     
     func deleteTask(at index: IndexSet) {
